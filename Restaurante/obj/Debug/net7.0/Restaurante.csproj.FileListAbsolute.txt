@@ -1,0 +1,15 @@
+C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\Restaurante.csproj.AssemblyReference.cache
+C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\Restaurante.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\Restaurante.AssemblyInfoInputs.cache
+C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\Restaurante.AssemblyInfo.cs
+C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\Restaurante.csproj.CoreCompileInputs.cache
+C:\Users\henri\source\repos\Restaurante\Restaurante\bin\Debug\net7.0\Restaurante.exe
+C:\Users\henri\source\repos\Restaurante\Restaurante\bin\Debug\net7.0\Restaurante.deps.json
+C:\Users\henri\source\repos\Restaurante\Restaurante\bin\Debug\net7.0\Restaurante.runtimeconfig.json
+C:\Users\henri\source\repos\Restaurante\Restaurante\bin\Debug\net7.0\Restaurante.dll
+C:\Users\henri\source\repos\Restaurante\Restaurante\bin\Debug\net7.0\Restaurante.pdb
+C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\Restaurante.dll
+C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\refint\Restaurante.dll
+C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\Restaurante.pdb
+C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\Restaurante.genruntimeconfig.cache
+C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\ref\Restaurante.dll
