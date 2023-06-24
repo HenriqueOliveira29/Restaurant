@@ -21,13 +21,12 @@ namespace Restaurante.Models
 
         public List<Pedido> Pedidos { get; private set; }
 
-        public Funcionario(int id, string name, string morada, string contacto, Restaurante restaurante)
+        public Funcionario(int id, string name, string morada, string contacto)
         {
             Id = id;
             Name = name;
             Morada = morada;
             Contacto = contacto;
-            Restaurante = restaurante;
         }
 
         public void AddPedido(Pedido pedido)
@@ -37,6 +36,11 @@ namespace Restaurante.Models
                 Pedidos = new List<Pedido>();
             }
             Pedidos.Add(pedido);
+        }
+
+        public void setRestautant(Restaurante restaurant)
+        {
+            Restaurante = restaurant;
         }
     }
 }

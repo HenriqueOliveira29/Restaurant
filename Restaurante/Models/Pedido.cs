@@ -31,13 +31,28 @@ namespace Restaurante.Models
             Date = date;
         }
 
-        public void AddItemPedido(ItemPedido itemPedido)
+        public bool AddItemPedido(ItemPedido itemPedido)
         {
+            var ingredientes = itemPedido.Item.ItemIngredientes;
+            foreach (var ingrediente in ingredientes)
+            {
+
+                if (ingrediente.Ingredientes.Stock.Quatity - (ingrediente.Quantity * itemPedido.Quantity) <= 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    ingrediente.Ingredientes.Stock.Quatity -= (ingrediente.Quantity * itemPedido.Quantity);
+                }
+            }
+
             if (ItemPedidos == null)
             {
                 ItemPedidos = new List<ItemPedido>();
             }
             ItemPedidos.Add(itemPedido);
+            return true;
         }
 
         public void CalculateTotalCost()

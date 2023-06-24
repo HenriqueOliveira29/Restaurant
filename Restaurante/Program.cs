@@ -10,8 +10,8 @@ internal class Program
     {
         var restaurante = new Restaurante.Models.Restaurante(1, "Conga", "Av. Sei lá");
 
-        var funcionario = new Funcionario(1, "Martim", "Debaixo da ponte", "91111111", restaurante);
-        var cliente = new Cliente(1, "Vitor", "92222222", restaurante);
+        var funcionario = new Funcionario(1, "Martim", "Debaixo da ponte", "91111111");
+        var cliente = new Cliente(1, "Vitor", "92222222");
 
         restaurante.AddFuncionario(funcionario);
         restaurante.AddCliente(cliente);
@@ -28,6 +28,8 @@ internal class Program
         var itemPedido = new ItemPedido(1, item, pedido, 1);
         pedido.AddItemPedido(itemPedido);
 
-        Console.WriteLine(pedido.TotalCost());
+        pedido.CalculateTotalCost();
+
+        Console.WriteLine(pedido.Preco);
     }
 }

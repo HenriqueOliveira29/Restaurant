@@ -17,17 +17,21 @@ namespace Restaurante.Models
         public Restaurante Restaurante { get; set; }
         public List<Pedido> Pedidos { get; set; }
 
-        public Cliente(int id, string nome, string contacto, Restaurante restaurante)
+        public Cliente(int id, string nome, string contacto)
         {
             Id = id;
             Nome = nome;
             Contacto = contacto;
-            Restaurante = restaurante;
         }
 
         public void AddPedido(Pedido pedido)
         {
             Pedidos.Add(pedido);
+        }
+
+        public void SetRestaurant(Restaurante restaurant)
+        {
+            Restaurante = restaurant;
         }
     }
 }
