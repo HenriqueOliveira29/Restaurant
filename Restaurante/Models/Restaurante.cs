@@ -23,6 +23,7 @@ namespace Restaurante.Models
 
         public void AddFuncionario(Funcionario funcionario)
         {
+            funcionario.setRestautant(this);
             if (Funcionarios == null)
             {
                 Funcionarios = new List<Funcionario>();
@@ -32,6 +33,7 @@ namespace Restaurante.Models
 
         public void AddCliente(Cliente cliente)
         {
+            cliente.SetRestaurant(this);
             if (Clientes == null)
             {
                 Clientes = new List<Cliente>();
