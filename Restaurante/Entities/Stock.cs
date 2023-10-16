@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Restaurante.Models
+﻿namespace Restaurante.Models
 {
     public enum UnitM
     {
@@ -17,11 +11,20 @@ namespace Restaurante.Models
         public decimal Quatity { get; set; }
         public UnitM Unit { get; set; }
 
-        public Stock(int id, int quantity, UnitM unit)
+        public int IngredientId { get; set; }
+        public Ingredients Ingredient { get; set; }
+
+        public Stock(int id, int quantity, UnitM unit, Ingredients ingredient)
         {
             Id = id;
             Quatity = quantity;
             Unit = unit;
+            Ingredient = ingredient;
+        }
+
+        public Stock()
+        {
+
         }
 
     }

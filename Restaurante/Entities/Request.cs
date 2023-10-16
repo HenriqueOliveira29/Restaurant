@@ -1,28 +1,25 @@
-﻿using Restaurante.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Restaurante.Models
+﻿namespace Restaurante.Models
 {
-    public class Pedido
+    public class Request
     {
         public int Id { get; private set; }
 
-        public Cliente Cliente { get; private set; }
+        public Client Cliente { get; private set; }
 
-        public Funcionario Funcionario { get; private set; }
+        public Waitress Funcionario { get; private set; }
 
         public double Preco { get; private set; }
 
-        public List<ItemPedido> ItemPedidos { get; private set; }
+        public List<ItemRequest> ItemPedidos { get; private set; }
 
         public DateTime Date { get; private set; }
 
+        public Request()
+        {
 
-        public Pedido(int id, Cliente cliente, Funcionario funcionario, double preco, DateTime date)
+        }
+
+        public Request(int id, Client cliente, Waitress funcionario, double preco, DateTime date)
         {
             Id = id;
             Cliente = cliente;
@@ -31,7 +28,7 @@ namespace Restaurante.Models
             Date = date;
         }
 
-        public bool AddItemPedido(ItemPedido itemPedido)
+        public bool AddItemPedido(ItemRequest itemPedido)
         {
             var ingredientes = itemPedido.Item.ItemIngredientes;
             foreach (var ingrediente in ingredientes)
@@ -49,7 +46,7 @@ namespace Restaurante.Models
 
             if (ItemPedidos == null)
             {
-                ItemPedidos = new List<ItemPedido>();
+                ItemPedidos = new List<ItemRequest>();
             }
             ItemPedidos.Add(itemPedido);
             return true;

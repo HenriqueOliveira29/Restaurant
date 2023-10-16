@@ -8,24 +8,24 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        var restaurante = new Restaurante.Models.Restaurante(1, "Conga", "Av. Sei lá");
+        var restaurante = new Restaurante.Models.Restaurant(1, "Conga", "Av. Sei lá");
 
-        var funcionario = new Funcionario(1, "Martim", "Debaixo da ponte", "91111111");
-        var cliente = new Cliente(1, "Vitor", "92222222");
+        var funcionario = new Waitress(1, "Martim", "Debaixo da ponte", "91111111");
+        var cliente = new Client(1, "Vitor", "92222222");
 
         restaurante.AddFuncionario(funcionario);
         restaurante.AddCliente(cliente);
 
-        var pedido = new Pedido(1, cliente, funcionario, 0, DateTime.Now);
+        var pedido = new Request(1, cliente, funcionario, 0, DateTime.Now);
         funcionario.AddPedido(pedido);
 
-        var ingrediente = new Ingrediente(1, "Queijo", new Stock(1, 10, UnitM.g));
+        Ingredients ingrediente = new Ingredients(1, "Queijo", 20);
 
         var item = new Item(1, "Francesinha", 10.00);
 
-        item.AddIngrediente(new ItemIngredientes(1, ingrediente, item, 10));
+        item.AddIngrediente(new ItemIngredients(1, ingrediente, item, 10));
 
-        var itemPedido = new ItemPedido(1, item, pedido, 1);
+        var itemPedido = new ItemRequest(1, item, pedido, 1);
         pedido.AddItemPedido(itemPedido);
 
         pedido.CalculateTotalCost();

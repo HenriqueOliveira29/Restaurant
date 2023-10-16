@@ -1,4 +1,3 @@
-C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\Restaurante.csproj.AssemblyReference.cache
 C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\Restaurante.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\Restaurante.AssemblyInfoInputs.cache
 C:\Users\henri\source\repos\Restaurante\Restaurante\obj\Debug\net7.0\Restaurante.AssemblyInfo.cs

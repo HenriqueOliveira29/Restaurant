@@ -1,42 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Restaurante.Models
+﻿namespace Restaurante.Models
 {
-    public class Restaurante
+    public class Restaurant
     {
         public int Id { get; private set; }
         public string Nome { get; private set; }
         public string Morada { get; private set; }
-        public List<Funcionario> Funcionarios { get; private set; }
-        public List<Cliente> Clientes { get; private set; }
+        public List<Waitress> Funcionarios { get; private set; }
+        public List<Client> Clientes { get; private set; }
 
-        public Restaurante(int id, string nome, string morada)
+        public Restaurant(int id, string nome, string morada)
         {
             Id = id;
             Nome = nome;
             Morada = morada;
         }
 
-        public void AddFuncionario(Funcionario funcionario)
+        public void AddFuncionario(Waitress funcionario)
         {
             funcionario.setRestautant(this);
             if (Funcionarios == null)
             {
-                Funcionarios = new List<Funcionario>();
+                Funcionarios = new List<Waitress>();
             }
             Funcionarios.Add(funcionario);
         }
 
-        public void AddCliente(Cliente cliente)
+        public void AddCliente(Client cliente)
         {
             cliente.SetRestaurant(this);
             if (Clientes == null)
             {
-                Clientes = new List<Cliente>();
+                Clientes = new List<Client>();
             }
             Clientes.Add(cliente);
         }

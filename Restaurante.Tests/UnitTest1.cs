@@ -5,18 +5,18 @@ namespace Restaurante.Tests
     public class Tests
     {
 
-        private Restaurante.Models.Restaurante _restautante;
+        private Restaurante.Models.Restaurant _restautante;
         [SetUp]
         public void Setup()
         {
-            _restautante = new Restaurante.Models.Restaurante(1, "Conga", "Av sei lá");
+            _restautante = new Restaurante.Models.Restaurant(1, "Conga", "Av sei lá");
         }
 
         [Test]
         public void Adicionar_funcionario()
         {
             //prepare
-            Funcionario funcionario = new Funcionario(1, "Albino", "Av não sei", "912345678");
+            Waitress funcionario = new Waitress(1, "Albino", "Av não sei", "912345678");
             //act
             _restautante.AddFuncionario(funcionario);
 
@@ -28,7 +28,7 @@ namespace Restaurante.Tests
         public void Adicionar_Cliente()
         {
             //prepare
-            Cliente cliente = new Cliente(1, "Ruben", "918245678");
+            Client cliente = new Client(1, "Ruben", "918245678");
             //act
             _restautante.AddCliente(cliente);
 
@@ -40,33 +40,33 @@ namespace Restaurante.Tests
         public void Adicionar_ItemPedido_Se_Tiver_Stock_Ingredientes()
         {
             //prepare
-            var funcionario = new Funcionario(1, "Martim", "Debaixo da ponte", "91111111");
-            var cliente = new Cliente(1, "Vitor", "92222222");
+            var funcionario = new Waitress(1, "Martim", "Debaixo da ponte", "91111111");
+            var cliente = new Client(1, "Vitor", "92222222");
 
             _restautante.AddFuncionario(funcionario);
             _restautante.AddCliente(cliente);
 
-            var pedido = new Pedido(1, cliente, funcionario, 0, DateTime.Now);
+            var pedido = new Request(1, cliente, funcionario, 0, DateTime.Now);
             funcionario.AddPedido(pedido);
 
-            var ingredientes = new List<Ingrediente>();
-            ingredientes.Add(new Ingrediente(1, "Queijo", new Stock(1, 20, UnitM.g)));
-            ingredientes.Add(new Ingrediente(2, "Bife", new Stock(2, 40, UnitM.g)));
+            var ingredientes = new List<Ingredients>();
+            ingredientes.Add(new Ingredients(1, "Queijo", 20));
+            ingredientes.Add(new Ingredients(2, "Bife", 20));
 
             var item = new Item(1, "Francesinha", 10.00);
 
             int j = 0;
-            foreach (Ingrediente ingrediente in ingredientes)
+            foreach (Ingredients ingrediente in ingredientes)
             {
-                item.AddIngrediente(new ItemIngredientes(j, ingrediente, item, 10));
+                item.AddIngrediente(new ItemIngredients(j, ingrediente, item, 10));
                 j++;
             }
 
-            var itemPedido = new ItemPedido(1, item, pedido, 1);
+            var itemPedido = new ItemRequest(1, item, pedido, 1);
 
-            var testIngredientes = new List<Ingrediente>();
-            testIngredientes.Add(new Ingrediente(1, "Queijo", new Stock(1, 20, UnitM.g)));
-            testIngredientes.Add(new Ingrediente(2, "Bife", new Stock(2, 40, UnitM.g)));
+            var testIngredientes = new List<Ingredients>();
+            testIngredientes.Add(new Ingredients(1, "Queijo", 20));
+            testIngredientes.Add(new Ingredients(2, "Bife", 40));
 
             //act
             pedido.AddItemPedido(itemPedido);
