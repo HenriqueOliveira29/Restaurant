@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "8v5Zsyze3o6D2xoHwk9aEH94iR1fsHweQUXWxXxLNqg2DzI/17K3rNS92BYaYdmnTAaCt7emXNs2kC0Z1f3dVA==",
+  "dgSpecHash": "W0WfzNZM0BxFgs1IUzXZDon5FKhOlwvAB3BcnjVp2RAmHpAw8oC9BqE7A6UGXcIXlA6RdJSETObhSg7SnoqVxw==",
   "success": true,
   "projectFilePath": "C:\\Users\\henri\\source\\repos\\Restaurante\\Restaurante\\Restaurant.Infraestructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\henri\\.nuget\\packages\\ardalis.smartenum\\7.0.0\\ardalis.smartenum.7.0.0.nupkg.sha512",
+    "C:\\Users\\henri\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\henri\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.1.1\\microsoft.aspnetcore.authentication.2.1.1.nupkg.sha512",
     "C:\\Users\\henri\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.1.1\\microsoft.aspnetcore.authentication.abstractions.2.1.1.nupkg.sha512",
     "C:\\Users\\henri\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.1.1\\microsoft.aspnetcore.authentication.cookies.2.1.1.nupkg.sha512",
