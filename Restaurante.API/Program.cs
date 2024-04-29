@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Restaurant.BLL.Services;
 using Restaurant.DAL;
 using Restaurant.Infraestructure.Entities;
 using System.Security.Claims;
@@ -10,13 +11,25 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 
+builder.Services.AddCors(o => o.AddPolicy("MyPolicy", option =>
+{
+    option.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
 
+    option.WithOrigins("http://localhost:3000", "https://localhost:3000")
+           .AllowAnyMethod()
+           .AllowAnyHeader()
+           .AllowCredentials();
+}));
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {
@@ -38,6 +51,17 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireUppercase = true;
     options.Password.RequiredLength = 8;
     options.Password.RequiredUniqueChars = 1;
+});
+
+builder.Services.AddMvc().AddSessionStateTempDataProvider();
+builder.Services.AddSession(options =>
+{
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.SameSite = SameSiteMode.Strict;
+    options.Cookie.HttpOnly = true;
+    options.Cookie.MaxAge = TimeSpan.FromDays(7);
+    options.IdleTimeout = TimeSpan.FromDays(7);
+    options.IOTimeout = TimeSpan.FromDays(7);
 });
 
 builder.Services.AddAuthentication(options =>
@@ -144,10 +168,12 @@ builder.Services.AddAuthentication(options =>
                return Task.CompletedTask;
            }
        };
-
    });
 
+builder.Services.AddTransient<AuthService>();
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -156,10 +182,39 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseSession();
+
+app.UseRouting();
+
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+app.UseHttpsRedirection();
 
-app.MapControllers();
+app.UseStaticFiles();
+app.UseDefaultFiles();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
+
+app.Use(async (context, next) =>
+{
+    await next();
+    var path = context.Request.Path.Value;
+
+    //Se o path estiver vazio ou for para ver o index.html
+    //E se não for para obter a API, o swagger ou algum outro ficheiro
+    if (path == null || path == "/index.html" || (!path.StartsWith("/api") && !Path.HasExtension(path) && !path.StartsWith("/swagger") && !path.StartsWith("/notificationHub")))
+    {
+        //Redirecionamos para o HTML
+        context.Request.Path = "/index.html";
+        await next();
+    }
+});
 
 app.Run();
+
+
+

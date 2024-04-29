@@ -4,6 +4,7 @@
   "success": true,
   "projectFilePath": "D:\\repos\\Restaurante\\Restaurante\\Restaurant.Infraestructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\henri\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\henri\\.nuget\\packages\\ardalis.smartenum\\8.0.0\\ardalis.smartenum.8.0.0.nupkg.sha512",
     "C:\\Users\\henri\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\henri\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
