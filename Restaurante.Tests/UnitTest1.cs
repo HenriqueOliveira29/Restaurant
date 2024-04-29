@@ -21,7 +21,7 @@ namespace Restaurante.Tests
             _restautante.AddFuncionario(funcionario);
 
             //assert
-            Assert.AreEqual(_restautante.Funcionarios[0], funcionario);
+            Assert.Equals(_restautante.Funcionarios[0], funcionario);
         }
 
         [Test]
@@ -33,7 +33,7 @@ namespace Restaurante.Tests
             _restautante.AddCliente(cliente);
 
             //assert
-            Assert.AreEqual(_restautante.Clientes[0], cliente);
+            Assert.Equals(_restautante.Clientes[0], cliente);
         }
 
         [Test]
@@ -77,7 +77,7 @@ namespace Restaurante.Tests
             {
                 var quantity = testIngredientes[i].Stock.Quatity;
                 decimal value = quantity - (ingredientes1.Quantity * itemPedido.Quantity);
-                Assert.AreEqual(value, ingredientes[i].Stock.Quatity);
+                Assert.Equals(value, ingredientes[i].Stock.Quatity);
                 i++;
             }
         }
